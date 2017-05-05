@@ -70,13 +70,15 @@
 \setcounter{secnumdepth}{3}      % Increase this to add deeper structures
 
 \titleformat{\part}[display]{}{\centering\Large Part \thepart}{1em}{
-\centering\huge\bfseries
-}
+	\centering\huge\bfseries
+	}
 
-\titleformat{\chapter}{\huge\bfseries}{}{1em}{\makebox[17mm][l]{\thechapter}}
-\titleformat{\section}{\Large\bfseries}{}{1em}{\makebox[17mm][l]{\thesection}}
-\titleformat{\subsection}{\bfseries}{}{1em}{\makebox[17mm][l]{\thesubsection}}
-\titleformat{\subsubsection}{\itshape}{\thesubsubsection}{1em}{\makebox[17mm][l]{\thesubsubsection}}
+\titleformat{\chapter}{\huge\bfseries}{}{1em}{\makebox[17mm][l]{\thechapter}\hangindent=17mm}
+\titleformat{\section}{\Large\bfseries}{}{1em}{\makebox[17mm][l]{\thesection}\hangindent=17mm}
+\titleformat{\subsection}{\bfseries}{}{1em}{\makebox[17mm][l]{\thesubsection}\hangindent=17mm}
+\titleformat{\subsubsection}{\itshape}{\thesubsubsection}{1em}{%
+	\makebox[17mm][l]{\thesubsubsection}\hangindent=17mm
+	}
 
 % Starred sections
 \titleformat{name=\chapter,numberless}{\huge\bfseries}{}{1em}{}
@@ -161,7 +163,9 @@
     {\chaptertitle}%
     }
 
-\newcommand\PageNumberWithTotal{\thepage/\pageref*{LastPage}}
+\makeatletter
+\newcommand\PageNumberWithTotal{\thepage\if@mainmatter/\pageref*{LastPage}\fi}
+\makeatother
 
 \newcommand\ZubaxLogoBlack[1][15mm]{\includegraphics[width=#1]{zubax_logo_black}}
 
@@ -227,7 +231,7 @@
 
 \chapter{Introduction}
 
-\section{Overview section}
+\section{Overview section, an even longer chapter title that wraps like a boss. I'm not kidding, it does wrap.}
 
 \subsection{Subsection}
 

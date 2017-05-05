@@ -12,7 +12,7 @@
 % Author and title must be defined before the documentation template is included.
 %
 \author{Zubax Robotics O\"U}
-\title{PX4 Sapog User Manual}
+\title{PX4 Sapog User Manual For Everyone}
 
 \usepackage{lipsum}              % Lorem ipsum text generation, useful for testing.
 \usepackage[pagestyles]{titlesec}
@@ -106,8 +106,11 @@
 }
 \makeatother
 
+% We don't need to clear double page, ever. Shall the need arise, we'll have to implement a cleaner fix.
+\renewcommand{\cleardoublepage}{\clearpage}
+
 %
-% Table of contents
+% Table of contents.
 % Note that the title margins are defined in absolute units because we're using different font sizes.
 %
 \renewcommand{\contentsname}{Table of contents}
@@ -168,6 +171,7 @@
 \makeatother
 
 \newcommand\ZubaxLogoBlack[1][15mm]{\includegraphics[width=#1]{zubax_logo_black}}
+\newcommand\ZubaxLogo[1][15mm]{\includegraphics[width=#1]{zubax_logo}}
 
 \newcommand\VerboseLinkToSupportForum{Support \& feedback: \href{https://productforums.zubax.com}{productforums.zubax.com}}
 
@@ -201,18 +205,61 @@
 	\headrule
 	\footrule
     }
+\newpagestyle{titlepage}{
+	\setfoot{\zubaxcopyright}{}{\VerboseLinkToSupportForum}
+	\footrule
+    }
 \makeatother
 
-% Use the same style on pages that open new chapters
+% Use the same style on pages that open new chapters.
 \patchcmd{\chapter}{plain}{main}{}{}
 
-% The default page style is set to empty in order to make the front page clutter free.
-\pagestyle{empty}
-
 % The document will switch to the proper page style automatically.
-\preto\frontmatter{\pagestyle{plain}}
-\preto\mainmatter{\pagestyle{main}}
-\preto\backmatter{\pagestyle{plain}}
+\preto\frontmatter{\onecolumn\pagestyle{plain}}
+\preto\mainmatter{\onecolumn\pagestyle{main}}
+\preto\backmatter{\onecolumn\pagestyle{plain}}
+
+%
+% Title page environment.
+% Use "\BeginRightColumn" to switch to the right column.
+%
+\newcommand{\BeginRightColumn}{\vfill\eject}
+
+\makeatletter
+\newcommand{\RenderTitlePageHeader}{%
+	\begin{minipage}[b]{0.6\textwidth}
+        \begin{Huge}\@title\end{Huge}\\\\
+        Revision \today
+	\end{minipage}%
+	\hfill%
+	\begin{minipage}[b]{0.3\textwidth}
+		\begin{flushright}
+		\begin{small}
+			\ZubaxLogo[40mm]\\
+			\textbf{\@author}\\
+			Narva mnt. 5, Tallinn 10117, Estonia\\
+			\href{mailto:info@zubax.com}{info@zubax.com}\\
+			Q\&{}A: \href{https://productforums.zubax.com}{productforums.zubax.com}
+		\end{small}
+		\end{flushright}
+	\end{minipage}\\\\%
+    }
+\makeatother
+
+\makeatletter
+\renewenvironment{titlepage}{%
+    \leftskip=0mm\parindent=0mm
+    \pagestyle{titlepage}\thispagestyle{titlepage}
+    \twocolumn[%
+        \begin{@twocolumnfalse}
+            \RenderTitlePageHeader
+        \end{@twocolumnfalse}
+        ]
+    }{%
+    \onecolumn
+    \clearpage
+    }
+\makeatother
 
 %
 % The document body begins here
@@ -220,7 +267,26 @@
 \begin{document}
 \frontmatter
 
-\maketitle
+\begin{titlepage}
+\section*{Overview}
+Here goes a brief overview of the capabilities of this awesome device.
+The feature list is quite extensive.
+
+\section*{Features}
+\begin{enumerate}
+  \item The labels consists of sequential numbers.
+  \item The numbers starts at 1 with every call to the enumerate environment.
+\end{enumerate}
+
+\BeginRightColumn
+
+\section*{Capabilities}
+\begin{enumerate}
+  \item The labels consists of sequential numbers.
+  \item The numbers starts at 1 with every call to the enumerate environment.
+\end{enumerate}
+\end{titlepage}
+
 \tableofcontents
 \listoffigures
 \listoftables
@@ -259,16 +325,16 @@ The individual entries are indicated with a black dot, a so-called bullet.
 
 \begin{table}[hb]
     \centering
-	\begin{tabular}{|r|l|}
-		\hline
-		7C0 & hexadecimal \\
-		3700 & octal \\ \cline{2-2}
-		11111000000 & binary \\
-		\hline \hline
-		1984 & decimal \\
-		\hline
-	\end{tabular}
-	\caption{Just a small demo table.}
+    \begin{tabular}{|r|l|}
+        \hline
+        7C0 & hexadecimal \\
+        3700 & octal \\ \cline{2-2}
+        11111000000 & binary \\
+        \hline \hline
+        1984 & decimal \\
+        \hline
+    \end{tabular}
+    \caption{Just a small demo table.}
 \end{table}
 
 \section{Second section}

@@ -5,29 +5,37 @@
 %
 % Author: Pavel Kirienko <pavel.kirienko@zubax.com>
 %
-
-\documentclass[a4paper,onecolumn,openany]{book}
-
+% READ THIS FIRST:
+%   In order for this package to work, its local directory must be included into the graphics
+%   path list as follows:
 %
-% Author and title must be defined before the documentation template is included.
+%       \graphicspath{{document_templates/documentation_template_latex/}}
 %
+%   Notice the slash at the end, it is required.
+%
+
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesClass{zubaxdoc}[2017/05/06 Zubax Documentation document class]
+
+\LoadClass[a4paper,onecolumn,openany]{book}
+
 \author{Zubax Robotics O\"U}
-\title{PX4 Sapog User Manual For Everyone}
 
-\usepackage{lipsum}              % Lorem ipsum text generation, useful for testing.
-\usepackage[pagestyles]{titlesec}
-\usepackage{titletoc}
-\usepackage{xcolor}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{etoolbox}
-\usepackage{ifthen}
-\usepackage{calc}
-\usepackage{titling}
-\usepackage[yyyymmdd]{datetime}
-\usepackage{lastpage}
+\RequirePackage{lipsum}              % Lorem ipsum text generation, useful for testing.
+\RequirePackage[pagestyles]{titlesec}
+\RequirePackage{titletoc}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{hyperref}
+\RequirePackage{enumitem}
+\RequirePackage{multicol}
+\RequirePackage{etoolbox}
+\RequirePackage{ifthen}
+\RequirePackage{calc}
+\RequirePackage{titling}
+\RequirePackage[yyyymmdd]{datetime}
+\RequirePackage{lastpage}
 
 %
 % Minor definitions.
@@ -38,19 +46,19 @@
 \renewcommand{\dateseparator}{.}
 
 \makeatletter
-\newcommand\zubaxcopyright{\copyright{} \the\year{} \href{http://zubax.com}{\@author}}
+\newcommand\ZubaxCopyright{\copyright{} \the\year{} \href{http://zubax.com}{\@author}}
 \makeatother
 
 %
 % Font specification.
 %
-\usepackage[sfdefault]{roboto}   % Option 'sfdefault' only if the base font of the document is to be sans serif
-\usepackage[T1]{fontenc}
+\RequirePackage[sfdefault]{roboto}   % Option 'sfdefault' only if the base font of the document is to be sans serif
+\RequirePackage[T1]{fontenc}
 
 %
 % Page layout (tricky).
 %
-\usepackage[a4paper]{geometry}
+\RequirePackage[a4paper]{geometry}
 \special{papersize=210mm,297mm}  % https://en.wikibooks.org/wiki/LaTeX/Page_Layout
 \setlength\columnsep{6mm}        % Multi-column envoronments only
 \setlength\headheight{17mm}
@@ -187,8 +195,8 @@
 	    {\ZubaxLogoBlack}{}{\TitleWithDateBefore}    % odd
 
 	\setfoot%
-	    [\PageNumberWithTotal][\small\VerboseLinkToSupportForum][\small\zubaxcopyright]
-	    {\small\zubaxcopyright}{\small\VerboseLinkToSupportForum}{\PageNumberWithTotal}
+	    [\PageNumberWithTotal][\small\VerboseLinkToSupportForum][\small\ZubaxCopyright]
+	    {\small\ZubaxCopyright}{\small\VerboseLinkToSupportForum}{\PageNumberWithTotal}
 
 	\headrule
 	\footrule
@@ -206,7 +214,7 @@
 	\footrule
     }
 \newpagestyle{titlepage}{
-	\setfoot{\zubaxcopyright}{}{\VerboseLinkToSupportForum}
+	\setfoot{\ZubaxCopyright}{}{\VerboseLinkToSupportForum}
 	\footrule
     }
 \makeatother
@@ -263,130 +271,4 @@
     }
 \makeatother
 
-%
-% The document body begins here
-%
-\begin{document}
-\frontmatter
-
-\begin{titlepage}
-\section*{Overview}
-Here goes a brief overview of the capabilities of this awesome device.
-The feature list is quite extensive.
-
-Starting a new paragraph right here.
-
-\section*{Features}
-\begin{enumerate}
-  \item The labels consists of sequential numbers.
-  \item The numbers starts at 1 with every call to the enumerate environment.
-\end{enumerate}
-
-\BeginRightColumn
-
-\section*{Capabilities}
-\begin{enumerate}
-  \item The labels consists of sequential numbers.
-  \item The numbers starts at 1 with every call to the enumerate environment.
-\end{enumerate}
-\end{titlepage}
-
-\tableofcontents
-\listoffigures
-\listoftables
-
-\mainmatter
-
-\part{User manual}
-
-\chapter{Introduction}
-
-\section{Overview section, an even longer chapter title that wraps like a boss. I'm not kidding, it does wrap.}
-
-\subsection{Subsection}
-
-Refer to \ref{sec:subsubsection} please.
-
-\lipsum[1]
-
-\subsubsection{Sub-subsection}
-
-\begin{itemize}
-  \item The individual entries are indicated with a black dot, a so-called bullet.
-The individual entries are indicated with a black dot, a so-called bullet.
-  \item The text in the entries\footnote{This is my footnote.} may be of any length.
-\end{itemize}
-
-\lipsum[2]
-
-\subsubsection{Sub-subsection}
-
-\label{sec:subsubsection}
-\begin{enumerate}
-  \item The labels consists of sequential numbers.
-  \item The numbers starts at 1 with every call to the enumerate environment.
-\end{enumerate}
-
-\begin{table}[hb]
-    \centering
-    \begin{tabular}{|r|l|}
-        \hline
-        7C0 & hexadecimal \\
-        3700 & octal \\ \cline{2-2}
-        11111000000 & binary \\
-        \hline \hline
-        1984 & decimal \\
-        \hline
-    \end{tabular}
-    \caption{Just a small demo table.}
-\end{table}
-
-\section{Second section}
-\begin{description}
-\item[Foo] A short name for the superluminal communication technology.
-Adding more text here in order to see how it wraps around the right edge. Nice.
-\item[Baz] Just some fancy baz.
-\end{description}
-
-\subsection{Subsection}
-
-\url{https://www.wikibooks.org}
-
-\href{https://www.wikibooks.org}{Wikibooks home}
-
-\subsubsection{Sub-subsection}
-
-\lipsum[5]
-
-\chapter{Functional overview}
-
-\begin{figure*}
-  \includegraphics[width=\textwidth]{timing_advance_interpolation}
-  \caption{Timing advance interpolation example. Title of this figure has been made that long intentionally.}
-\end{figure*}
-
-\lipsum
-
-\chapter{Communication interfaces, a very long chapter name that hardly fits in the footer}
-
-\lipsum
-
-\chapter{Configuration parameters}
-
-\lipsum
-
-\part{Tuning guide}
-
-\chapter{Basic configuration}
-
-\lipsum
-
-\chapter{Advanced tuning}
-
-\lipsum
-
-\chapter{Frequently asked questions}
-
-\lipsum
-
-\end{document}
+\endinput

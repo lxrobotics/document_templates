@@ -56,6 +56,7 @@
 %
 % Page layout (tricky).
 %
+\raggedbottom
 \RequirePackage[a4paper]{geometry}
 \special{papersize=210mm,297mm}  % https://en.wikibooks.org/wiki/LaTeX/Page_Layout
 \setlength\columnsep{6mm}        % Multi-column envoronments only

@@ -47,6 +47,12 @@
 
 \newcommand\ZubaxCopyright{\copyright{} \the\year{} \href{http://zubax.com}{\@author}}
 
+% Deferring configuration of the PDF metadata until the point where the document title (and author) are known.
+\preto\frontmatter{\hypersetup{
+    pdftitle={\@title{} -- \@author},
+    pdfauthor={\@author}
+}}
+
 %
 % Font specification.
 %
@@ -99,11 +105,8 @@
 
 %
 % Hyperlinks.
-% TODO: Abort rendering if title or author are empty!
 %
 \hypersetup{
-    pdftitle={\@title{} -- \@author},
-    pdfauthor={\@author},
     colorlinks,
     citecolor=colorhyperlink,
     filecolor=colorhyperlink,

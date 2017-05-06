@@ -62,7 +62,7 @@
 \setlength\columnsep{6mm}        % Multi-column envoronments only
 \setlength\headheight{17mm}
 \setlength{\parskip}{0.5em}
-\renewcommand{\baselinestretch}{1.25}
+\renewcommand{\baselinestretch}{1.2}
 \leftskip=17mm
 \headsep=8mm
 \footskip=12mm
@@ -223,24 +223,30 @@
 \newcommand{\BeginRightColumn}{\vfill\eject}
 
 \newcommand{\RenderTitlePageHeader}{%
-	\begin{minipage}[b]{0.6\textwidth}
-        \begin{Huge}\@title\end{Huge}\\\\
-        Revision \today\\
-	\end{minipage}%
-	\hfill%
-	\begin{minipage}[b]{0.3\textwidth}
-		\begin{flushright}
-		\begin{small}
-			\ZubaxLogo[40mm]\\
-			\textbf{\@author}\\
-			Narva mnt. 5, Tallinn 10117, Estonia\\
-			\href{mailto:info@zubax.com}{info@zubax.com}\\
-			Q\&{}A: \href{https://productforums.zubax.com}{productforums.zubax.com}
-		\end{small}
-		\end{flushright}
-	\end{minipage}\\%
-	\rule{\textwidth}{.4pt}
-	\\%
+    \renewcommand{\baselinestretch}{1}
+    \begin{minipage}[b]{0.65\textwidth}
+        \begin{flushleft}
+        \begin{Huge}
+            \@title\par
+        \end{Huge}
+        \end{flushleft}\vspace{7mm}
+        Revision \today
+    \end{minipage}%
+    \hfill%
+    \begin{minipage}[b]{0.3\textwidth}
+        \begin{flushright}
+        \begin{small}
+            \ZubaxLogo[40mm]\\\vspace{3mm}
+            \textbf{\@author}\\
+            Narva mnt. 5, Tallinn 10117, Estonia\\
+            \href{mailto:info@zubax.com}{info@zubax.com}\\
+            Q\&{}A: \href{https://productforums.zubax.com}{productforums.zubax.com}
+        \end{small}
+        \end{flushright}
+    \end{minipage}
+    % Without \hfill here, TeX complains that hbox is underfull,
+    % despite the fact that the rule spans for \textwidth here. I have no idea why.
+    \rule{\textwidth}{.4pt}\hfill\vspace{3mm}
     }
 
 \renewenvironment{titlepage}{%

@@ -45,9 +45,7 @@
 
 \renewcommand{\dateseparator}{.}
 
-\makeatletter
 \newcommand\ZubaxCopyright{\copyright{} \the\year{} \href{http://zubax.com}{\@author}}
-\makeatother
 
 %
 % Font specification.
@@ -102,7 +100,6 @@
 % Hyperlinks.
 % TODO: Abort rendering if title or author are empty!
 %
-\makeatletter
 \hypersetup{
     pdftitle={\@title{} -- \@author},
     pdfauthor={\@author},
@@ -112,7 +109,6 @@
     linkcolor=colorhyperlink,
     urlcolor=colorhyperlink
 }
-\makeatother
 
 % We don't need to clear double page, ever. Shall the need arise, we'll have to implement a cleaner fix.
 \renewcommand{\cleardoublepage}{\clearpage}
@@ -134,7 +130,6 @@
 \dottedcontents{figure}[2em]{}{2em}{1pc}
 
 % Custom styling of TOC, LOF, LOT.
-\makeatletter
 \renewcommand\tableofcontents{%
     \thispagestyle{plain}
     \section*{\contentsname}%
@@ -150,7 +145,6 @@
     \section*{\listtablename}%
     \@starttoc{lot}%
     }
-\makeatother
 
 % Make links black in the TOC, LOF, LOT.
 \preto\tableofcontents{\hypersetup{linkcolor=black}}
@@ -174,21 +168,16 @@
     {\chaptertitle}%
     }
 
-\makeatletter
 \newcommand\PageNumberWithTotal{\thepage\if@mainmatter/\pageref*{LastPage}\fi}
-\makeatother
 
 \newcommand\ZubaxLogoBlack[1][15mm]{\includegraphics[width=#1]{zubax_logo_black}}
 \newcommand\ZubaxLogo[1][15mm]{\includegraphics[width=#1]{zubax_logo}}
 
 \newcommand\VerboseLinkToSupportForum{Support \& feedback: \href{https://productforums.zubax.com}{productforums.zubax.com}}
 
-\makeatletter
 \newcommand\TitleWithDateBefore{\begin{footnotesize}\today\quad\end{footnotesize}{\@title}}
 \newcommand\TitleWithDateAfter{{\@title}\begin{footnotesize}\quad\today\end{footnotesize}}
-\makeatother
 
-\makeatletter
 \renewpagestyle{plain}{
 	\sethead%
 	    [\TitleWithDateAfter][][\ZubaxLogoBlack]     % even
@@ -217,7 +206,6 @@
 	\setfoot{\ZubaxCopyright}{}{\VerboseLinkToSupportForum}
 	\footrule
     }
-\makeatother
 
 % Use the same style on pages that open new chapters.
 \patchcmd{\chapter}{plain}{main}{}{}
@@ -233,7 +221,6 @@
 %
 \newcommand{\BeginRightColumn}{\vfill\eject}
 
-\makeatletter
 \newcommand{\RenderTitlePageHeader}{%
 	\begin{minipage}[b]{0.6\textwidth}
         \begin{Huge}\@title\end{Huge}\\\\
@@ -254,9 +241,7 @@
 	\rule{\textwidth}{.4pt}
 	\\%
     }
-\makeatother
 
-\makeatletter
 \renewenvironment{titlepage}{%
     \leftskip=0mm\parindent=0mm
     \pagestyle{titlepage}\thispagestyle{titlepage}
@@ -269,6 +254,5 @@
     \onecolumn
     \clearpage
     }
-\makeatother
 
 \endinput

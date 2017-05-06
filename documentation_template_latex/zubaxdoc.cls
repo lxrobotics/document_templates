@@ -224,19 +224,17 @@
 
 \newcommand{\RenderTitlePageHeader}{%
     \renewcommand{\baselinestretch}{1}
-    \begin{minipage}[b]{0.65\textwidth}
-        \begin{flushleft}
-        \begin{Huge}
-            \@title\par
-        \end{Huge}
-        \end{flushleft}\vspace{7mm}
+    \begin{minipage}[b][40mm]{0.65\textwidth}
+        \vfill
+        \begin{flushleft}\begin{Huge}\@title\end{Huge}\end{flushleft}
+        \vfill
         Revision \today
-    \end{minipage}%
-    \hfill%
+    \end{minipage}
+    \hfill
     \begin{minipage}[b]{0.3\textwidth}
         \begin{flushright}
         \begin{small}
-            \ZubaxLogo[40mm]\\\vspace{3mm}
+            \ZubaxLogo[50mm]\\\vspace{3mm}
             \textbf{\@author}\\
             Narva mnt. 5, Tallinn 10117, Estonia\\
             \href{mailto:info@zubax.com}{info@zubax.com}\\

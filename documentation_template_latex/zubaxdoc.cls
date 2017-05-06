@@ -36,6 +36,7 @@
 \RequirePackage{titling}
 \RequirePackage[yyyymmdd]{datetime}
 \RequirePackage{lastpage}
+\RequirePackage{minted}
 
 %
 % Minor definitions.
@@ -52,6 +53,19 @@
     pdftitle={\@title{} -- \@author},
     pdfauthor={\@author}
 }}
+
+% Source code listings highlighting
+\usemintedstyle{vs}
+\setminted{
+frame=leftline,
+linenos,
+numberblanklines=false,
+fontsize=\footnotesize,
+xleftmargin=\dimexpr\leftskip-2mm\relax,
+framesep=2mm,
+autogobble
+}
+\renewcommand{\theFancyVerbLine}{\scriptsize \texttt \oldstylenums{\arabic{FancyVerbLine}}}
 
 %
 % Font specification.

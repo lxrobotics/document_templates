@@ -67,6 +67,20 @@ autogobble
 }
 \renewcommand{\theFancyVerbLine}{\scriptsize \texttt \oldstylenums{\arabic{FancyVerbLine}}}
 
+% List styling
+\renewcommand{\labelitemi}{\textbullet}
+\renewcommand{\labelitemii}{\textbullet}
+\renewcommand{\labelitemiii}{\textbullet}
+\renewcommand{\labelitemiv}{\textbullet}
+
+\setlist[itemize,2]{leftmargin=2em}
+\setlist[itemize,3]{leftmargin=3em}
+\setlist[itemize,4]{leftmargin=4em}
+
+\setlist[description]{leftmargin=\leftskip,labelindent=\dimexpr\leftskip+\parindent\relax}
+\setlist[enumerate]{leftmargin=\leftskip,itemindent=1.4em,nosep}
+\setlist[itemize]{leftmargin=\leftskip,itemindent=1.4em,nosep}
+
 %
 % Font specification.
 %
@@ -86,9 +100,6 @@ autogobble
 \leftskip=17mm
 \headsep=8mm
 \footskip=12mm
-\setlist[description]{leftmargin=\leftskip,labelindent=\dimexpr\leftskip+\parindent\relax}
-\setlist[enumerate]{leftmargin=\leftskip,itemindent=3em}
-\setlist[itemize]{leftmargin=\leftskip,itemindent=3em}
 \geometry{margin=20mm,top=24mm,bottom=24mm}
 
 %

@@ -26,6 +26,7 @@
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{titletoc}
 \RequirePackage{xcolor}
+\RequirePackage{gensymb}
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
 \RequirePackage{enumitem}
@@ -95,7 +96,8 @@ autogobble
 \special{papersize=210mm,297mm}  % https://en.wikibooks.org/wiki/LaTeX/Page_Layout
 \setlength\columnsep{6mm}        % Multi-column envoronments only
 \setlength\headheight{17mm}
-\setlength{\parskip}{0.5em}
+\setlength{\parskip}{0.6em}
+\parindent=1em
 \renewcommand{\baselinestretch}{1.2}
 \leftskip=17mm
 \headsep=8mm

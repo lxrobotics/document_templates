@@ -99,6 +99,7 @@ autogobble
 \setlength{\parskip}{0.6em}
 \parindent=1em
 \renewcommand{\baselinestretch}{1.2}
+\renewcommand{\arraystretch}{1.2}
 \leftskip=17mm
 \headsep=8mm
 \footskip=12mm

@@ -32,6 +32,10 @@
 \RequirePackage{enumitem}
 \RequirePackage{multicol}
 \RequirePackage{etoolbox}
+\RequirePackage[font={bf}]{caption}
+\RequirePackage{threeparttablex}
+\RequirePackage{tabu}
+\RequirePackage{longtable}
 \RequirePackage{ifthen}
 \RequirePackage{calc}
 \RequirePackage{titling}
@@ -97,6 +101,7 @@ autogobble
 \setlength\columnsep{6mm}        % Multi-column envoronments only
 \setlength\headheight{17mm}
 \setlength{\parskip}{0.6em}
+\setlength{\abovecaptionskip}{0.2em}
 \parindent=1em
 \renewcommand{\baselinestretch}{1.2}
 \renewcommand{\arraystretch}{1.2}
@@ -104,6 +109,9 @@ autogobble
 \headsep=8mm
 \footskip=12mm
 \geometry{margin=20mm,top=24mm,bottom=24mm}
+
+% Removes the left margin for the next paragraph
+\newcommand{\NoLeftSkip}{\parindent=-\leftskip}
 
 %
 % Section formatting
@@ -187,6 +195,43 @@ autogobble
 
 \preto\listoftables{\hypersetup{linkcolor=black}}
 \appto\listoftables{\hypersetup{linkcolor=colorhyperlink}}
+
+%
+% Table macros.
+%
+% Use this wrapper environment to define tables in it.
+% This environment provides proper placement of the table within the page, and the properly positioned caption.
+\newenvironment{ZubaxTableWrapper}[1]{
+    \NoLeftSkip
+    \begin{minipage}{\textwidth}  % Minipage is needed to prevent page breaks after the caption
+        \begin{ThreePartTable}
+            % https://tex.stackexchange.com/questions/3243/why-should-a-table-caption-be-placed-above-the-table
+            \captionof{table}{#1}
+}{
+        \end{ThreePartTable}
+    \end{minipage}
+}
+
+% Use this environment to define a table within the wrapper environment defined above.
+\newenvironment{ZubaxWrappedTable}[1]{
+    \NoLeftSkip
+    \begin{tabu} to \textwidth {#1}
+        \hline
+        \everyrow{\hline}
+        \rowfont{\bfseries}
+}{
+    \end{tabu}
+}
+
+% This is a shortcut that places a table within the wrapper environment.
+% Use it in all cases unless you need to define table notes, or if you need to customize something.
+\newenvironment{ZubaxSimpleTable}[2]{
+    \begin{ZubaxTableWrapper}{#1}
+        \begin{ZubaxWrappedTable}{#2}
+}{
+        \end{ZubaxWrappedTable}
+    \end{ZubaxTableWrapper}
+}
 
 %
 % Page styling.

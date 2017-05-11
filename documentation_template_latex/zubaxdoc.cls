@@ -32,6 +32,8 @@
 \RequirePackage{enumitem}
 \RequirePackage{multicol}
 \RequirePackage{etoolbox}
+\RequirePackage{amstext}
+\RequirePackage[detect-all]{siunitx}
 \RequirePackage[font={bf}]{caption}
 \RequirePackage{threeparttablex}
 \RequirePackage{tabu}
@@ -50,6 +52,8 @@
 \definecolor{colorzubaxred}{RGB}{224,0,0}    % Zubax red logo color
 
 \renewcommand{\dateseparator}{.}
+
+\sisetup{range-phrase = \text{--}}
 
 \newcommand\ZubaxCopyright{\copyright{} \the\year{} \href{http://zubax.com}{\@author}}
 
@@ -210,6 +214,15 @@ autogobble
 }{
         \end{ThreePartTable}
     \end{minipage}
+}
+
+\newenvironment{ZubaxCompactTable}[1]{
+    \begin{tabu}{#1}
+        \hline
+        \everyrow{\hline}
+        \rowfont{\bfseries}
+}{
+    \end{tabu}
 }
 
 % Use this environment to define a table within the wrapper environment defined above.

@@ -104,9 +104,9 @@ autogobble
 \special{papersize=210mm,297mm}  % https://en.wikibooks.org/wiki/LaTeX/Page_Layout
 \setlength\columnsep{6mm}        % Multi-column envoronments only
 \setlength\headheight{17mm}
-\setlength{\parskip}{0.6em}
+\setlength{\parskip}{0.9em}
 \setlength{\abovecaptionskip}{0.2em}
-\parindent=1em
+\parindent=0em
 \renewcommand{\baselinestretch}{1.2}
 \renewcommand{\arraystretch}{1.2}
 \leftskip=17mm

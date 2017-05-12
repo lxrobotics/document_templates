@@ -99,12 +99,13 @@ autogobble
 %
 % Page layout (tricky).
 %
+\newcommand{\DefaultParskip}{0.9em}
 \raggedbottom
 \RequirePackage[a4paper]{geometry}
 \special{papersize=210mm,297mm}  % https://en.wikibooks.org/wiki/LaTeX/Page_Layout
 \setlength\columnsep{6mm}        % Multi-column envoronments only
 \setlength\headheight{17mm}
-\setlength{\parskip}{0.9em}
+\setlength{\parskip}{\DefaultParskip}
 \setlength{\abovecaptionskip}{0.2em}
 \parindent=0em
 \renewcommand{\baselinestretch}{1.2}
@@ -138,9 +139,9 @@ autogobble
 \titleformat{name=\section,numberless}{\Large\bfseries}{}{1em}{}
 
 % {left}{before}{after}[right]
-\titlespacing{\chapter}{0em}{0em}{1em}
-\titlespacing{\section}{0em}{.5em}{0em}
-\titlespacing{\subsection}{0em}{.5em}{0em}
+\titlespacing{\chapter}{0em}{0em}{0em}
+\titlespacing{\section}{0em}{0em}{0em}
+\titlespacing{\subsection}{0em}{0em}{0em}
 \titlespacing{\subsubsection}{0em}{0em}{0em}
 
 %
@@ -191,14 +192,14 @@ autogobble
     }
 
 % Make links black in the TOC, LOF, LOT.
-\preto\tableofcontents{\hypersetup{linkcolor=black}}
-\appto\tableofcontents{\hypersetup{linkcolor=colorhyperlink}}
+\preto\tableofcontents{\hypersetup{linkcolor=black}         \setlength{\parskip}{0em}}
+\appto\tableofcontents{\hypersetup{linkcolor=colorhyperlink}\setlength{\parskip}{\DefaultParskip}}
 
-\preto\listoffigures{\hypersetup{linkcolor=black}}
-\appto\listoffigures{\hypersetup{linkcolor=colorhyperlink}}
+\preto\listoffigures{\hypersetup{linkcolor=black}         \setlength{\parskip}{0em}}
+\appto\listoffigures{\hypersetup{linkcolor=colorhyperlink}\setlength{\parskip}{\DefaultParskip}}
 
-\preto\listoftables{\hypersetup{linkcolor=black}}
-\appto\listoftables{\hypersetup{linkcolor=colorhyperlink}}
+\preto\listoftables{\hypersetup{linkcolor=black}         \setlength{\parskip}{0em}}
+\appto\listoftables{\hypersetup{linkcolor=colorhyperlink}\setlength{\parskip}{\DefaultParskip}}
 
 %
 % Table macros.

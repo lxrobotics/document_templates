@@ -95,6 +95,7 @@ autogobble
 %
 \RequirePackage[sfdefault]{roboto}   % Option 'sfdefault' only if the base font of the document is to be sans serif
 \RequirePackage[T1]{fontenc}
+\RequirePackage{inconsolata}
 
 %
 % Page layout (tricky).

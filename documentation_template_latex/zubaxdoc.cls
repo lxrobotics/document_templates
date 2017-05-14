@@ -303,7 +303,7 @@ autogobble
 \patchcmd{\chapter}{plain}{main}{}{}
 
 % The document will switch to the proper page style automatically.
-\preto\frontmatter{\onecolumn\pagestyle{plain}}
+\preto\frontmatter{\twocolumn\pagestyle{plain}}
 \preto\mainmatter{\onecolumn\pagestyle{main}}
 \preto\backmatter{\onecolumn\pagestyle{plain}}
 
@@ -347,7 +347,6 @@ autogobble
         \end{@twocolumnfalse}
         ]
     }{%
-    \onecolumn
     \clearpage
     }
 

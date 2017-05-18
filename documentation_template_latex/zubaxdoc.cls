@@ -114,7 +114,7 @@ autogobble
 \leftskip=17mm
 \headsep=8mm
 \footskip=12mm
-\geometry{margin=20mm,top=24mm,bottom=24mm}
+\geometry{margin=20mm,top=20mm,bottom=20mm}
 
 % Removes the left margin for the next paragraph
 \newcommand{\NoLeftSkip}{\parindent=-\leftskip}

@@ -43,3 +43,7 @@ is invoked with the option `-shell-escape`, otherwise the syntax coloring featur
 
 Avoid inclusion of complex graphics in EPS format, because it tends to be rendered poorly by `pdflatex`.
 Prefer PDF instead.
+
+When exporting graphics from Wolfram Mathematica, avoid PDF, and export to EPS instead.
+Afterwards convert EPS into PDF using Inkscape or other vector graphics software.
+Yes it's complicated, I wish software had less bugs...

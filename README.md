@@ -38,3 +38,8 @@ rm *.pdf*
 Alternatively, use the Texmaker IDE.
 In this case you will have to modify the compilation command so that `pdflatex` (or other LaTeX compiler)
 is invoked with the option `-shell-escape`, otherwise the syntax coloring feature will not work.
+
+## Editing notes
+
+Avoid inclusion of complex graphics in EPS format, because it tends to be rendered poorly by `pdflatex`.
+Prefer PDF instead.

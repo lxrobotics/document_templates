@@ -46,17 +46,22 @@ Prefer PDF instead.
 
 ### Wolfram Mathematica
 
-When exporting graphics from Wolfram Mathematica, avoid PDF, and export to EPS instead.
-Afterwards convert EPS into PDF using Inkscape or some other vector graphics software.
-Yes it's complicated, I wish software had less bugs...
+When exporting graphics from Wolfram Mathematica, try PDF first, and if it doesn't work
+(the PDF export feature often breaks on complex graphics), resort to EPS.
 Overall the exporting forkflow should look like this:
 
-1. Export the graphics from Mathematica to EPS.
-2. Open the exported EPS with Inkscape.
+1. Export the graphics from Mathematica to PDF (if it doesn't work, use EPS).
+If annotations or other changes aren't necessary, the process ends here.
+2. Open the exported file with Inkscape.
 3. **Ungroup the graphics** (right click --> ungroup).
-This is mandatory, otherwise the quality of the exported image will suffer.
+If the grraphics file is a plot that contains grid lines, move them all the way to the back
+(select the grid lines and press "End" on the keyboard).
+This is mandatory, otherwise the quality of the exported image may suffer.
 3. Edit the graphics as necessary (e.g. add annotations), and
 save it as Inkscape SVG with extension `.inkscape.svg`.
-4. **Delete the EPS file obtained in the step 1**. There is no need to keep temporary files.
+4. **Delete the temporary file obtained in the step 1**. There is no need to keep temporary files.
 The Inkscape file, however, should be kept under version control in order to make editing easier later.
 5. Export the file from Inkscape into PDF and include it into the LaTeX file.
+
+It is best to avoid grid lines when exporting via EPS; or, if they are still required, try to avoid making them
+dotted or dashed, because these features tend to look ugly when exported through EPS.

@@ -52,8 +52,11 @@ Yes it's complicated, I wish software had less bugs...
 Overall the exporting forkflow should look like this:
 
 1. Export the graphics from Mathematica to EPS.
-2. Open the exported EPS with Inkscape, edit as necessary (e.g. add annotations), and
+2. Open the exported EPS with Inkscape.
+3. **Ungroup the graphics** (right click --> ungroup).
+This is mandatory, otherwise the quality of the exported image will suffer.
+3. Edit the graphics as necessary (e.g. add annotations), and
 save it as Inkscape SVG with extension `.inkscape.svg`.
-3. **Delete the EPS file obtained in the step 1**. There is no need to keep temporary files.
+4. **Delete the EPS file obtained in the step 1**. There is no need to keep temporary files.
 The Inkscape file, however, should be kept under version control in order to make editing easier later.
-4. Export the file from Inkscape into PDF and include it into the LaTeX file.
+5. Export the file from Inkscape into PDF and include it into the LaTeX file.

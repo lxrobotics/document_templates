@@ -46,6 +46,13 @@ is invoked with the option `-shell-escape`,
 otherwise the syntax coloring feature (and probably something else) will not work.
 The compiler should be invoked twice during the compilation cycle in order to resolve the
 internal references in the document.
+
+The resulting command should look similar to this:
+
+```bash
+pdflatex -shell-escape -synctex=1 -interaction=nonstopmode %.tex|pdflatex -shell-escape -synctex=1 -interaction=nonstopmode %.tex|okular %.pdf
+```
+
 An example of the resulting configuration is shown on the following screenshot:
 
 ![Texmaker configuration example](texmaker_config_example.png)

@@ -265,7 +265,7 @@ autogobble
 \newcommand\ZubaxLogoBlack[1][15mm]{\includegraphics[width=#1]{zubax_logo_black}}
 \newcommand\ZubaxLogo[1][15mm]{\includegraphics[width=#1]{zubax_logo}}
 
-\newcommand\VerboseLinkToSupportForum{Support \& feedback: \href{https://productforums.zubax.com}{productforums.zubax.com}}
+\newcommand\VerboseLinkToSupportForum{Support \& feedback: \href{https://forum.zubax.com}{forum.zubax.com}}
 
 \newcommand\TitleWithDateBefore{\begin{footnotesize}\today\quad\end{footnotesize}{\@title}}
 \newcommand\TitleWithDateAfter{{\@title}\begin{footnotesize}\quad\today\end{footnotesize}}
@@ -329,7 +329,7 @@ autogobble
             \textbf{\@author}\\
             Narva mnt. 5, Tallinn 10117, Estonia\\
             \href{mailto:info@zubax.com}{info@zubax.com}\\
-            Q\&{}A: \href{https://productforums.zubax.com}{productforums.zubax.com}
+            Q\&{}A: \href{https://forum.zubax.com}{forum.zubax.com}
         \end{small}
         \end{flushright}
     \end{minipage}

@@ -65,7 +65,20 @@ class Monitor(object):
 
 \subsubsection{This is a sub-subsection}
 
-\lipsum[5-6]
+\begin{ZubaxTableWrapper}{Environmental conditions}
+    \begin{ZubaxWrappedTable}{|c X|l c|c|c|}
+        Symbol            & Parameter                         &  Min & Max & Unit \\
+        $T_\text{oper}$   & Operating temperature\tnote{1}    & -40  & 100 & \degree{}C \\
+        $B$               & Magnetic field strength           &      & 9   & Gauss \\
+    \end{ZubaxWrappedTable}
+    \begin{tablenotes}
+        \item[1] The GNSS hot start feature is not expected to work reliably below -20\degree{}C
+                 due to poor performance of the supercapacitor-based backup power source
+                 at low temperatures.
+                 However, this should not have any adverse side effects on the general performance of
+                 the unit except that the time-to-first-fix (TTFF) may be higher than normal.
+    \end{tablenotes}
+\end{ZubaxTableWrapper}
 
 \end{document}
 ```

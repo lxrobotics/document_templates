@@ -87,7 +87,7 @@ autogobble
 \setlist[itemize,4]{leftmargin=4em}
 
 \setlist[description]{leftmargin=\leftskip,labelindent=\dimexpr\leftskip+\parindent\relax}
-\setlist[enumerate]{leftmargin=\leftskip,itemindent=1em,nosep}
+\setlist[enumerate]{leftmargin=\leftskip,itemindent=1.4em,nosep}
 \setlist[itemize]{leftmargin=\leftskip,itemindent=1em,nosep}
 
 %

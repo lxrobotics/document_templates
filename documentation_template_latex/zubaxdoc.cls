@@ -119,6 +119,10 @@ autogobble
 % Removes the left margin for the next paragraph
 \newcommand{\NoLeftSkip}{\parindent=-\leftskip}
 
+% Allowing larger emergency stretch in order to avoid overfull boxes. More on the emergencystretch feature here:
+% https://tex.stackexchange.com/questions/241343/what-is-the-meaning-of-fussy-sloppy-emergencystretch-tolerance-hbadness
+\appto\fussy{\emergencystretch 5em}
+
 %
 % Section formatting
 %
@@ -176,20 +180,29 @@ autogobble
 \dottedcontents{figure}[2em]{}{2em}{1pc}
 
 % Custom styling of TOC, LOF, LOT.
+% Using \sloppy in order to ensure that the maximum line length is not exceeded.
+% Exceeding the line limit in two-column environments breaks the table of contents and wreaks havoc in general.
+% More on this at https://kb.zubax.com/x/IYEh
 \renewcommand\tableofcontents{%
     \thispagestyle{plain}%
+    \sloppy%
     \section*{\contentsname}%
     \@starttoc{toc}%
+    \fussy%
     }
 \renewcommand\listoffigures{%
     \thispagestyle{plain}%
+    \sloppy%
     \section*{\listfigurename}%
     \@starttoc{lof}%
+    \fussy%
     }
 \renewcommand\listoftables{%
     \thispagestyle{plain}%
+    \sloppy%
     \section*{\listtablename}%
     \@starttoc{lot}%
+    \fussy%
     }
 
 % Make links black in the TOC, LOF, LOT.
@@ -303,8 +316,9 @@ autogobble
 \patchcmd{\chapter}{plain}{main}{}{}
 
 % The document will switch to the proper page style automatically.
+% We also take this opportunity to enforce \fussy in the main matter.
 \preto\frontmatter{\twocolumn\pagestyle{plain}}
-\preto\mainmatter{\onecolumn\pagestyle{main}}
+\preto\mainmatter{\onecolumn\pagestyle{main}\fussy}
 \preto\backmatter{\onecolumn\pagestyle{plain}}
 
 %
@@ -346,6 +360,9 @@ autogobble
             \RenderTitlePageHeader
         \end{@twocolumnfalse}
         ]
+    % This is needed to allow LaTeX add more white spaces to avoid overflowing lines.
+    % Extra white spaces in two-column environments are much less bad than overflowing lines.
+    \emergencystretch 10em
     }{%
     \clearpage
     }

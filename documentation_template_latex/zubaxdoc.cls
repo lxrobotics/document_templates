@@ -125,15 +125,15 @@ autogobble
 \setcounter{secnumdepth}{3}      % Increase this to add deeper structures
 
 \titleformat{\part}[display]{}{\centering\Large Part \thepart}{1em}{
-	\centering\huge\bfseries
-	}
+    \centering\huge\bfseries
+    }
 
 \titleformat{\chapter}{\huge\bfseries}{}{1em}{\makebox[17mm][l]{\thechapter}\hangindent=17mm}
 \titleformat{\section}{\Large\bfseries}{}{1em}{\makebox[17mm][l]{\thesection}\hangindent=17mm}
 \titleformat{\subsection}{\bfseries}{}{1em}{\makebox[17mm][l]{\thesubsection}\hangindent=17mm}
 \titleformat{\subsubsection}{\itshape}{\thesubsubsection}{1em}{%
-	\makebox[17mm][l]{\thesubsubsection}\hangindent=17mm
-	}
+    \makebox[17mm][l]{\thesubsubsection}\hangindent=17mm
+    }
 
 % Starred sections
 \titleformat{name=\chapter,numberless}{\huge\bfseries}{}{1em}{}
@@ -271,32 +271,32 @@ autogobble
 \newcommand\TitleWithDateAfter{{\@title}\begin{footnotesize}\quad\today\end{footnotesize}}
 
 \renewpagestyle{plain}{
-	\sethead%
-	    [\TitleWithDateAfter][][\ZubaxLogoBlack]     % even
-	    {\ZubaxLogoBlack}{}{\TitleWithDateBefore}    % odd
+    \sethead%
+        [\TitleWithDateAfter][][\ZubaxLogoBlack]     % even
+        {\ZubaxLogoBlack}{}{\TitleWithDateBefore}    % odd
 
-	\setfoot%
-	    [\PageNumberWithTotal][\small\VerboseLinkToSupportForum][\small\ZubaxCopyright]
-	    {\small\ZubaxCopyright}{\small\VerboseLinkToSupportForum}{\PageNumberWithTotal}
+    \setfoot%
+        [\PageNumberWithTotal][\small\VerboseLinkToSupportForum][\small\ZubaxCopyright]
+        {\small\ZubaxCopyright}{\small\VerboseLinkToSupportForum}{\PageNumberWithTotal}
 
-	\headrule
-	\footrule
+    \headrule
+    \footrule
     }
 \newpagestyle{main}{
-	\sethead%
-	    [\TitleWithDateAfter][][\ZubaxLogoBlack]     % even
-	    {\ZubaxLogoBlack}{}{\TitleWithDateBefore}    % odd
+    \sethead%
+        [\TitleWithDateAfter][][\ZubaxLogoBlack]     % even
+        {\ZubaxLogoBlack}{}{\TitleWithDateBefore}    % odd
 
-	\setfoot%
-	    [\PageNumberWithTotal][][\small\ChapterTitleWithNumber]
-	    {\small\ChapterTitleWithNumber}{}{\PageNumberWithTotal}
+    \setfoot%
+        [\PageNumberWithTotal][][\small\ChapterTitleWithNumber]
+        {\small\ChapterTitleWithNumber}{}{\PageNumberWithTotal}
 
-	\headrule
-	\footrule
+    \headrule
+    \footrule
     }
 \newpagestyle{titlepage}{
-	\setfoot{\ZubaxCopyright}{}{\VerboseLinkToSupportForum}
-	\footrule
+    \setfoot{\ZubaxCopyright}{}{\VerboseLinkToSupportForum}
+    \footrule
     }
 
 % Use the same style on pages that open new chapters.

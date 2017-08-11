@@ -177,17 +177,17 @@ autogobble
 
 % Custom styling of TOC, LOF, LOT.
 \renewcommand\tableofcontents{%
-    \thispagestyle{plain}
+    \thispagestyle{plain}%
     \section*{\contentsname}%
     \@starttoc{toc}%
     }
 \renewcommand\listoffigures{%
-    \thispagestyle{plain}
+    \thispagestyle{plain}%
     \section*{\listfigurename}%
     \@starttoc{lof}%
     }
 \renewcommand\listoftables{%
-    \thispagestyle{plain}
+    \thispagestyle{plain}%
     \section*{\listtablename}%
     \@starttoc{lot}%
     }

@@ -37,6 +37,7 @@
 \RequirePackage[font={bf}]{caption}
 \RequirePackage{threeparttablex}
 \RequirePackage{tabu}
+\RequirePackage{makecell}
 \RequirePackage{longtable}
 \RequirePackage{ifthen}
 \RequirePackage{calc}
@@ -218,6 +219,13 @@ autogobble
 %
 % Table macros.
 %
+
+% Ensuring proper bottom spacing for multi-row cells.
+% This requires the makecell package
+% More at https://tex.stackexchange.com/a/378134/132781
+\setcellgapes{1pt}
+\makegapedcells
+
 % Use this wrapper environment to define tables in it.
 % This environment provides proper placement of the table within the page, and the properly positioned caption.
 \newenvironment{ZubaxTableWrapper}[1]{

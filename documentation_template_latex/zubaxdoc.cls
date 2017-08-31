@@ -45,6 +45,7 @@
 \RequirePackage[yyyymmdd]{datetime}
 \RequirePackage{lastpage}
 \RequirePackage{minted}
+\RequirePackage{chngcntr}
 
 %
 % Minor definitions.
@@ -90,6 +91,12 @@ autogobble
 \setlist[description]{leftmargin=\leftskip,labelindent=\dimexpr\leftskip+\parindent\relax}
 \setlist[enumerate]{leftmargin=\leftskip,itemindent=1.4em,nosep}
 \setlist[itemize]{leftmargin=\leftskip,itemindent=1em,nosep}
+
+% Continuous footnote numbering
+\counterwithout{footnote}{chapter}
+
+% We don't need to clear double page, ever. Shall the need arise, we'll have to implement a cleaner fix.
+\renewcommand{\cleardoublepage}{\clearpage}
 
 %
 % Font specification.
@@ -160,9 +167,6 @@ autogobble
     linkcolor=colorhyperlink,
     urlcolor=colorhyperlink
 }
-
-% We don't need to clear double page, ever. Shall the need arise, we'll have to implement a cleaner fix.
-\renewcommand{\cleardoublepage}{\clearpage}
 
 %
 % Table of contents.

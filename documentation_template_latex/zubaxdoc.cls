@@ -341,19 +341,19 @@ autogobble
 
 \newcommand{\RenderTitlePageHeader}{%
     \renewcommand{\baselinestretch}{1}
-    \begin{minipage}[b][40mm]{0.65\textwidth}
+    \begin{minipage}[b][40mm]{0.64\textwidth}
         \vfill
         \begin{flushleft}\begin{Huge}\@title\end{Huge}\end{flushleft}
         \vfill
         Revision \today
     \end{minipage}
     \hfill
-    \begin{minipage}[b]{0.3\textwidth}
+    \begin{minipage}[b]{0.36\textwidth}
         \begin{flushright}
         \begin{small}
             \ZubaxLogo[50mm]\\\vspace{3mm}
             \textbf{\@author}\\
-            Narva mnt. 5, Tallinn 10117, Estonia\\
+            Akadeemia rd. 21/1, Tallinn 12618, Estonia\\
             \href{mailto:info@zubax.com}{info@zubax.com}\\
             Q\&{}A: \href{https://forum.zubax.com}{forum.zubax.com}
         \end{small}

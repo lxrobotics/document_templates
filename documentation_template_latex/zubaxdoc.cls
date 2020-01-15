@@ -1,5 +1,5 @@
 %
-% Copyright (c) 2017  Zubax Robotics OU  <info@zubax.com>
+% Copyright (c) 2017-2020  Zubax Robotics  <info@zubax.com>
 %
 % Distributed under GPL v3.
 %
@@ -16,13 +16,12 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{zubaxdoc}[2017/05/06 Zubax Documentation document class]
+\ProvidesClass{zubaxdoc}[2020/01/15 Zubax Documentation document class]
 
 \LoadClass[a4paper,onecolumn,openany]{book}
 
 \author{Zubax Robotics}
 
-\RequirePackage{lipsum}              % Lorem ipsum text generation, useful for testing.
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{titletoc}
 \RequirePackage{xcolor}
@@ -53,7 +52,7 @@
 \definecolor{colorhyperlink}{RGB}{100,0,0}
 \definecolor{colorzubaxred}{RGB}{224,0,0}    % Zubax red logo color
 
-\renewcommand{\dateseparator}{.}
+\renewcommand{\dateseparator}{-}
 
 \sisetup{range-phrase = \text{--}}
 
@@ -68,13 +67,13 @@
 % Source code listings highlighting
 \usemintedstyle{vs}
 \setminted{
-frame=leftline,
-linenos,
-numberblanklines=false,
-fontsize=\footnotesize,
-xleftmargin=\dimexpr\leftskip-2mm\relax,
-framesep=2mm,
-autogobble
+    frame=leftline,
+    linenos,
+    numberblanklines=false,
+    fontsize=\footnotesize,
+    xleftmargin=\dimexpr\leftskip-2mm\relax,
+    framesep=2mm,
+    autogobble
 }
 \renewcommand{\theFancyVerbLine}{\scriptsize \texttt \oldstylenums{\arabic{FancyVerbLine}}}
 
@@ -101,9 +100,9 @@ autogobble
 %
 % Font specification.
 %
-\RequirePackage[sfdefault]{roboto}   % Option 'sfdefault' only if the base font of the document is to be sans serif
 \RequirePackage[T1]{fontenc}
-\RequirePackage{inconsolata}
+\RequirePackage{fourier}        % Main font: Utopia Regular (serif); the monospace is ugly, so we override it later
+\renewcommand*\ttdefault{txtt}  % Overriding the monospace font
 
 %
 % Page layout (tricky).
@@ -117,12 +116,12 @@ autogobble
 \setlength{\parskip}{\DefaultParskip}
 \setlength{\abovecaptionskip}{0.2em}
 \parindent=0em
-\renewcommand{\baselinestretch}{1.2}
-\renewcommand{\arraystretch}{1.2}
+\renewcommand{\baselinestretch}{1}
+\renewcommand{\arraystretch}{1.1}
 \leftskip=17mm
 \headsep=8mm
 \footskip=12mm
-\geometry{margin=20mm,top=20mm,bottom=20mm}
+\geometry{margin=18mm,top=20mm,bottom=20mm}
 
 % Removes the left margin for the next paragraph
 \newcommand{\NoLeftSkip}{\parindent=-\leftskip}
@@ -138,14 +137,14 @@ autogobble
 
 \titleformat{\part}[display]{}{\centering\Large Part \thepart}{1em}{
     \centering\huge\bfseries
-    }
+}
 
 \titleformat{\chapter}{\huge\bfseries}{}{1em}{\makebox[17mm][l]{\thechapter}\hangindent=17mm}
 \titleformat{\section}{\Large\bfseries}{}{1em}{\makebox[17mm][l]{\thesection}\hangindent=17mm}
 \titleformat{\subsection}{\bfseries}{}{1em}{\makebox[17mm][l]{\thesubsection}\hangindent=17mm}
 \titleformat{\subsubsection}{\itshape}{\thesubsubsection}{1em}{%
     \makebox[17mm][l]{\thesubsubsection}\hangindent=17mm
-    }
+}
 
 % Starred sections
 \titleformat{name=\chapter,numberless}{\huge\bfseries}{}{1em}{}
@@ -177,12 +176,12 @@ autogobble
 \renewcommand{\listtablename}{List of tables}
 \setcounter{tocdepth}{2}
 \titlecontents{part}[0em]{\centering\bfseries}{}{}{}
-\dottedcontents{chapter}[10mm]{\bfseries}{10mm}{1pc}
-\dottedcontents{section}[20mm]{}{10mm}{1pc}
-\dottedcontents{subsection}[30mm]{\small}{10mm}{1pc}
+\dottedcontents{chapter}[5mm]{\bfseries}{5mm}{1pc}
+\dottedcontents{section}[14mm]{}{9mm}{1pc}
+\dottedcontents{subsection}[25mm]{\footnotesize}{11mm}{1pc}
 
-\dottedcontents{table}[2em]{}{2em}{1pc}
-\dottedcontents{figure}[2em]{}{2em}{1pc}
+\dottedcontents{table}[3em]{}{3em}{1pc}
+\dottedcontents{figure}[3em]{}{3em}{1pc}
 
 % Custom styling of TOC, LOF, LOT.
 % Using \sloppy in order to ensure that the maximum line length is not exceeded.
@@ -194,21 +193,21 @@ autogobble
     \section*{\contentsname}%
     \@starttoc{toc}%
     \fussy%
-    }
+}
 \renewcommand\listoffigures{%
     \thispagestyle{plain}%
     \sloppy%
     \section*{\listfigurename}%
     \@starttoc{lof}%
     \fussy%
-    }
+}
 \renewcommand\listoftables{%
     \thispagestyle{plain}%
     \sloppy%
     \section*{\listtablename}%
     \@starttoc{lot}%
     \fussy%
-    }
+}
 
 % Make links black in the TOC, LOF, LOT.
 \preto\tableofcontents{\hypersetup{linkcolor=black}         \setlength{\parskip}{0em}}
@@ -283,7 +282,7 @@ autogobble
     \ifdefempty{\chaptertitle}%
     {\sectiontitle}%
     {\chaptertitle}%
-    }
+}
 
 \newcommand\PageNumberWithTotal{\thepage\if@mainmatter/\pageref*{LastPage}\fi}
 
@@ -306,7 +305,7 @@ autogobble
 
     \headrule
     \footrule
-    }
+}
 \newpagestyle{main}{
     \sethead%
         [\TitleWithDateAfter][][\ZubaxLogoBlack]     % even
@@ -318,11 +317,11 @@ autogobble
 
     \headrule
     \footrule
-    }
+}
 \newpagestyle{titlepage}{
     \setfoot{\ZubaxCopyright}{}{\VerboseLinkToSupportForum}
     \footrule
-    }
+}
 
 % Use the same style on pages that open new chapters.
 \patchcmd{\chapter}{plain}{main}{}{}
@@ -362,7 +361,7 @@ autogobble
     % Without \hfill here, TeX complains that hbox is underfull,
     % despite the fact that the rule spans for \textwidth here. I have no idea why.
     \rule{\textwidth}{.4pt}\hfill\vspace{3mm}
-    }
+}
 
 \renewenvironment{titlepage}{%
     \leftskip=0mm\parindent=0mm
@@ -371,12 +370,12 @@ autogobble
         \begin{@twocolumnfalse}
             \RenderTitlePageHeader
         \end{@twocolumnfalse}
-        ]
+    ]
     % This is needed to allow LaTeX add more white spaces to avoid overflowing lines.
     % Extra white spaces in two-column environments are much less bad than overflowing lines.
     \emergencystretch 10em
     }{%
     \clearpage
-    }
+}
 
 \endinput

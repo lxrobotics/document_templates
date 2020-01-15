@@ -1,4 +1,4 @@
-Zubax Document Templates
+Zubax document templates
 ========================
 
 This repository contains templates for documents (LaTeX and such).

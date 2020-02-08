@@ -30,6 +30,7 @@
 \RequirePackage{hyperref}
 \RequirePackage{enumitem}
 \RequirePackage{multicol}
+\RequirePackage{multirow}
 \RequirePackage{etoolbox}
 \RequirePackage{amstext}
 \RequirePackage[detect-all]{siunitx}
@@ -250,6 +251,15 @@
 }{
     \end{tabu}
 }
+
+% Use this environment to define a table with multirows within the wrapper environment defined above.
+\newenvironment{ZubaxShortcutTable}[1]{
+    \NoLeftSkip
+    \begin{tabu} to \textwidth {#1}
+        \hline
+        \rowfont{\bfseries}
+}{
+    \end{tabu}
 
 % Use this environment to define a table within the wrapper environment defined above.
 \newenvironment{ZubaxWrappedTable}[1]{

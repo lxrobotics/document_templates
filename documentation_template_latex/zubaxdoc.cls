@@ -30,7 +30,6 @@
 \RequirePackage{hyperref}
 \RequirePackage{enumitem}
 \RequirePackage{multicol}
-\RequirePackage{multirow}
 \RequirePackage{etoolbox}
 \RequirePackage{amstext}
 \RequirePackage[detect-all]{siunitx}

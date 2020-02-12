@@ -80,5 +80,18 @@ class Monitor(object):
     \end{tablenotes}
 \end{ZubaxTableWrapper}
 
+\begin{ZubaxTableWrapper}{ESD ratings}
+    \begin{ZubaxWrappedTable}[noborder]{|c l|X|c|c|}\label{table:ESD_ratings}
+        Symbol          & Parameter  & Model                                                     & Value   & Unit \\
+        \hline
+        \multirow{2}{*}{$V_\text{ESD}$} & \multirow{2}{*}{Electrostatic discharge} & Human-body model, per
+                                                                                     ANSI/ESDA/JEDEC JS-001
+                                                                                                 & +/-1000 &  V   \\
+        \cline{3-5}
+                        &            & Charged-device model, per JEDEC specification JESD22-C101 & +/-500  &  V   \\
+        \hline
+    \end{ZubaxWrappedTable}
+\end{ZubaxTableWrapper}
+
 \end{document}
 ```

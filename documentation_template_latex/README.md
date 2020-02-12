@@ -6,7 +6,8 @@ Use this LaTeX template to write documentation.
 Consider the following usage example below; also refer to the existing documents.
 
 ```tex
-\documentclass{zubaxdoc}                                           % You can use a symlink to refer to the class
+\documentclass{zubaxdoc}                                    % You can use a symlink to refer to the class
+\usepackage{multirow}                                       % This package is required for joining rows in tables
 \graphicspath{{document_templates/documentation_template_latex/}}  % Path to the class directory must be provided
 \title{A demo document}
 
@@ -78,6 +79,19 @@ class Monitor(object):
                  However, this should not have any adverse side effects on the general performance of
                  the unit except that the time-to-first-fix (TTFF) may be higher than normal.
     \end{tablenotes}
+\end{ZubaxTableWrapper}
+
+\begin{ZubaxTableWrapper}{ESD ratings}
+    \begin{ZubaxWrappedTable}[noborder]{|c l|X|c|c|}\label{table:ESD_ratings}
+        Symbol          & Parameter  & Model                                                     & Value   & Unit \\
+        \hline
+        \multirow{2}{*}{$V_\text{ESD}$} & \multirow{2}{*}{Electrostatic discharge} & Human-body model, per
+                                                                                     ANSI/ESDA/JEDEC JS-001
+                                                                                                 & +/-1000 &  V   \\
+        \cline{3-5}
+                        &            & Charged-device model, per JEDEC specification JESD22-C101 & +/-500  &  V   \\
+        \hline
+    \end{ZubaxWrappedTable}
 \end{ZubaxTableWrapper}
 
 \end{document}

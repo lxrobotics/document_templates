@@ -252,11 +252,11 @@
 }
 
 % Use this environment to define a table within the wrapper environment defined above.
-\newenvironment{ZubaxWrappedTable}[1]{
+\newenvironment{ZubaxWrappedTable}[2][\empty]{
     \NoLeftSkip
-    \begin{tabu} to \textwidth {#1}
+    \begin{tabu} to \textwidth {#2}
         \hline
-        \everyrow{\hline}
+        \ifx\empty#1\everyrow{\hline}\fi %every row has the border by default
         \rowfont{\bfseries}
 }{
     \end{tabu}

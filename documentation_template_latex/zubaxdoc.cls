@@ -45,6 +45,7 @@
 \RequirePackage{lastpage}
 \RequirePackage{minted}
 \RequirePackage{chngcntr}
+\RequirePackage{csquotes}
 
 %
 % Minor definitions.
@@ -166,6 +167,7 @@
     linkcolor=colorhyperlink,
     urlcolor=colorhyperlink
 }
+\captionsetup{hypcap=false}
 
 %
 % Table of contents.

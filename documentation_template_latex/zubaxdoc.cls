@@ -45,6 +45,7 @@
 \RequirePackage{lastpage}
 \RequirePackage{minted}
 \RequirePackage{chngcntr}
+\RequirePackage{changepage}
 \RequirePackage{csquotes}
 
 %

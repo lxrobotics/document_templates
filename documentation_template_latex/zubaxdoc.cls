@@ -144,9 +144,7 @@
 \titleformat{\chapter}{\huge\bfseries}{}{0em}{\makebox[17mm][l]{\thechapter}\hangindent=\leftskip}
 \titleformat{\section}{\Large\bfseries}{}{0em}{\makebox[17mm][l]{\thesection}\hangindent=\leftskip}
 \titleformat{\subsection}{\bfseries}{}{0em}{\makebox[17mm][l]{\thesubsection}\hangindent=\leftskip}
-\titleformat{\subsubsection}{\itshape}{\thesubsubsection}{1em}{%
-    \makebox[17mm][l]{\thesubsubsection}\hangindent=17mm
-}
+\titleformat{\subsubsection}{\itshape}{}{0em}{\makebox[17mm][l]{\thesubsubsection}\hangindent=\leftskip}
 
 % Starred sections
 \titleformat{name=\chapter,numberless}{\huge\bfseries}{}{0em}{}

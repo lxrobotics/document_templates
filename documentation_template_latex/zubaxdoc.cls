@@ -137,10 +137,7 @@
 %
 \setcounter{secnumdepth}{3}      % Increase this to add deeper structures
 
-\titleformat{\part}[display]{}{\centering\Large Part \thepart}{1em}{
-    \centering\huge\bfseries
-}
-
+\titleformat{\part}[display]{}{\centering\Large Part \thepart}{1em}{\centering\huge\bfseries}
 \titleformat{\chapter}{\huge\bfseries}{}{0em}{\makebox[17mm][l]{\thechapter}\hangindent=\leftskip}
 \titleformat{\section}{\Large\bfseries}{}{0em}{\makebox[17mm][l]{\thesection}\hangindent=\leftskip}
 \titleformat{\subsection}{\bfseries}{}{0em}{\makebox[17mm][l]{\thesubsection}\hangindent=\leftskip}

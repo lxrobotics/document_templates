@@ -45,6 +45,7 @@
 \RequirePackage{lastpage}
 \RequirePackage{minted}
 \RequirePackage{chngcntr}
+\RequirePackage{changepage}
 \RequirePackage{csquotes}
 
 %
@@ -89,8 +90,8 @@
 \setlist[itemize,4]{leftmargin=4em}
 
 \setlist[description]{leftmargin=\leftskip,labelindent=\dimexpr\leftskip+\parindent\relax}
-\setlist[enumerate]{leftmargin=\leftskip,itemindent=1.4em,nosep}
-\setlist[itemize]{leftmargin=\leftskip,itemindent=1em,nosep}
+\setlist[enumerate]{itemindent=0ex,leftmargin=\leftskip+1.4em,nosep}
+\setlist[itemize]{itemindent=0ex,leftmargin=\leftskip+1em,nosep}
 
 % Continuous footnote numbering
 \counterwithout{footnote}{chapter}
@@ -136,20 +137,15 @@
 %
 \setcounter{secnumdepth}{3}      % Increase this to add deeper structures
 
-\titleformat{\part}[display]{}{\centering\Large Part \thepart}{1em}{
-    \centering\huge\bfseries
-}
-
-\titleformat{\chapter}{\huge\bfseries}{}{1em}{\makebox[17mm][l]{\thechapter}\hangindent=17mm}
-\titleformat{\section}{\Large\bfseries}{}{1em}{\makebox[17mm][l]{\thesection}\hangindent=17mm}
-\titleformat{\subsection}{\bfseries}{}{1em}{\makebox[17mm][l]{\thesubsection}\hangindent=17mm}
-\titleformat{\subsubsection}{\itshape}{\thesubsubsection}{1em}{%
-    \makebox[17mm][l]{\thesubsubsection}\hangindent=17mm
-}
+\titleformat{\part}[display]{}{\centering\Large Part \thepart}{1em}{\centering\huge\bfseries}
+\titleformat{\chapter}{\huge\bfseries}{}{0em}{\makebox[17mm][l]{\thechapter}\hangindent=\leftskip}
+\titleformat{\section}{\Large\bfseries}{}{0em}{\makebox[17mm][l]{\thesection}\hangindent=\leftskip}
+\titleformat{\subsection}{\bfseries}{}{0em}{\makebox[17mm][l]{\thesubsection}\hangindent=\leftskip}
+\titleformat{\subsubsection}{\itshape}{}{0em}{\makebox[17mm][l]{\thesubsubsection}\hangindent=\leftskip}
 
 % Starred sections
-\titleformat{name=\chapter,numberless}{\huge\bfseries}{}{1em}{}
-\titleformat{name=\section,numberless}{\Large\bfseries}{}{1em}{}
+\titleformat{name=\chapter,numberless}{\huge\bfseries}{}{0em}{}
+\titleformat{name=\section,numberless}{\Large\bfseries}{}{0em}{}
 
 % {left}{before}{after}[right]
 \titlespacing{\chapter}{0em}{0em}{0em}
@@ -233,13 +229,20 @@
 
 % Use this wrapper environment to define tables in it.
 % This environment provides proper placement of the table within the page, and the properly positioned caption.
-\newenvironment{ZubaxTableWrapper}[1]{
-    \NoLeftSkip
-    \begin{minipage}{\textwidth}  % Minipage is needed to prevent page breaks after the caption
+% An optional [wide] parameter can be specified to align the table with the left margin instead of leftskip.
+\newsavebox{\tablecaption}
+\newenvironment{ZubaxTableWrapper}[2][\empty]{
+    \ifthenelse{\equal{#1}{wide}}{
+        \NoLeftSkip
+        \begin{minipage}{\textwidth}  % Minipage is needed to prevent page breaks before the caption
+    }{
+        \begin{minipage}{\textwidth-\leftskip}  % Minipage is needed to prevent page breaks before the caption
+    }
+    \sbox{\tablecaption}{#2}
         \begin{ThreePartTable}
-            % https://tex.stackexchange.com/questions/3243/why-should-a-table-caption-be-placed-above-the-table
-            \captionof{table}{#1}
 }{
+            % https://github.com/Zubax/document_templates/pull/6#issuecomment-640133791
+            \captionof{table}{\usebox{\tablecaption}}
         \end{ThreePartTable}
     \end{minipage}
 }
@@ -255,7 +258,6 @@
 
 % Use this environment to define a table within the wrapper environment defined above.
 \newenvironment{ZubaxWrappedTable}[2][\empty]{
-    \NoLeftSkip
     \begin{tabu} to \textwidth {#2}
         \hline
         \ifx\empty#1\everyrow{\hline}\fi %every row has the border by default
@@ -266,9 +268,10 @@
 
 % This is a shortcut that places a table within the wrapper environment.
 % Use it in all cases unless you need to define table notes, or if you need to customize something.
-\newenvironment{ZubaxSimpleTable}[2]{
-    \begin{ZubaxTableWrapper}{#1}
-        \begin{ZubaxWrappedTable}{#2}
+% An optional [wide] parameter can be specified to align the table with the left margin instead of leftskip.
+\newenvironment{ZubaxSimpleTable}[3][]{
+    \begin{ZubaxTableWrapper}[#1]{#2}
+        \begin{ZubaxWrappedTable}{#3}
 }{
         \end{ZubaxWrappedTable}
     \end{ZubaxTableWrapper}

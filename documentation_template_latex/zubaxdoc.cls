@@ -47,6 +47,7 @@
 \RequirePackage{chngcntr}
 \RequirePackage{changepage}
 \RequirePackage{csquotes}
+\RequirePackage{xparse}
 
 %
 % Minor definitions.
@@ -230,19 +231,17 @@
 % Use this wrapper environment to define tables in it.
 % This environment provides proper placement of the table within the page, and the properly positioned caption.
 % An optional [wide] parameter can be specified to align the table with the left margin instead of leftskip.
-\newsavebox{\tablecaption}
-\newenvironment{ZubaxTableWrapper}[2][\empty]{
+\NewDocumentEnvironment{ZubaxTableWrapper}{ o m }{%
     \ifthenelse{\equal{#1}{wide}}{
         \NoLeftSkip
         \begin{minipage}{\textwidth}  % Minipage is needed to prevent page breaks before the caption
     }{
         \begin{minipage}{\textwidth-\leftskip}  % Minipage is needed to prevent page breaks before the caption
     }
-    \sbox{\tablecaption}{#2}
         \begin{ThreePartTable}
 }{
             % https://github.com/Zubax/document_templates/pull/6#issuecomment-640133791
-            \captionof{table}{\usebox{\tablecaption}}
+            \captionof{table}{#2}
         \end{ThreePartTable}
     \end{minipage}
 }
@@ -257,7 +256,7 @@
 }
 
 % Use this environment to define a table within the wrapper environment defined above.
-\newenvironment{ZubaxWrappedTable}[2][\empty]{
+\newenvironment{ZubaxWrappedTable}[2][\empty]{%
     \begin{tabu} to \textwidth {#2}
         \hline
         \ifx\empty#1\everyrow{\hline}\fi %every row has the border by default

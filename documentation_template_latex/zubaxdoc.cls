@@ -14,11 +14,11 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{zubaxdoc}[2023/02/22 Zubax Documentation document class]
+\ProvidesClass{zubaxdoc}[2023/02/22 LXRobotics Documentation document class]
 
 \LoadClass[a4paper,onecolumn,openany]{book}
 
-\author{Zubax Robotics}
+\author{LXRobotics GmbH}
 
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{titletoc}
@@ -58,7 +58,7 @@
 
 \sisetup{range-phrase = \text{--}}
 
-\newcommand\ZubaxCopyright{\copyright{} \the\year{} \href{http://zubax.com}{\@author}}
+\newcommand\LXRoboticsCopyright{\copyright{} \the\year{} \href{http://www.lxrobotics.com}{\@author}}
 
 % Deferring configuration of the PDF metadata until the point where the document title (and author) are known.
 \preto\frontmatter{\hypersetup{
@@ -290,7 +290,7 @@
 \newcommand\ZubaxLogoBlack[1][15mm]{\includegraphics[width=#1]{zubax_logo_black}}
 \newcommand\ZubaxLogo[1][15mm]{\includegraphics[width=#1]{zubax_logo}}
 
-\newcommand\VerboseLinkToSupportForum{Support \& feedback: \href{https://forum.zubax.com}{forum.zubax.com}}
+\newcommand\VerboseLinkToSupportForum{Support \& feedback: \href{https://forum.opencyphal.com}{forum.opencyphal.com}}
 
 \newcommand\TitleWithDateBefore{\begin{footnotesize}\today\quad\end{footnotesize}{\@title}}
 \newcommand\TitleWithDateAfter{{\@title}\begin{footnotesize}\quad\today\end{footnotesize}}
@@ -301,8 +301,8 @@
         {\ZubaxLogoBlack}{}{\TitleWithDateBefore}    % odd
 
     \setfoot%
-        [\PageNumberWithTotal][\small\VerboseLinkToSupportForum][\small\ZubaxCopyright]
-        {\small\ZubaxCopyright}{\small\VerboseLinkToSupportForum}{\PageNumberWithTotal}
+        [\PageNumberWithTotal][\small\VerboseLinkToSupportForum][\small\LXRoboticsCopyright]
+        {\small\LXRoboticsCopyright}{\small\VerboseLinkToSupportForum}{\PageNumberWithTotal}
 
     \headrule
     \footrule
@@ -320,7 +320,7 @@
     \footrule
 }
 \newpagestyle{titlepage}{
-    \setfoot{\ZubaxCopyright}{}{\VerboseLinkToSupportForum}
+    \setfoot{\LXRoboticsCopyright}{}{\VerboseLinkToSupportForum}
     \footrule
 }
 
@@ -353,9 +353,9 @@
         \begin{small}
             \ZubaxLogo[50mm]\\\vspace{3mm}
             \textbf{\@author}\\
-            Akadeemia rd. 21/1, Tallinn 12618, Estonia\\
-            \href{mailto:info@zubax.com}{info@zubax.com}\\
-            Q\&{}A: \href{https://forum.zubax.com}{forum.zubax.com}
+            Lehnerfeld 15, 4230 Pregarten, Austria\\
+            \href{mailto:sales@lxrobotics.com}{sales@lxrobotics.com}\\
+            Q\&{}A: \href{https://forum.opencyphal.org/}{forum.opencyphal.com}
         \end{small}
         \end{flushright}
     \end{minipage}

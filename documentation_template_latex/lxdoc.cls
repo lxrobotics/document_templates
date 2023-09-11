@@ -15,7 +15,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{zubaxdoc}[2023/02/22 LXRobotics Documentation document class]
+\ProvidesClass{lxdoc.cls}[2023/02/22 LXRobotics Documentation document class]
 
 \LoadClass[a4paper,onecolumn,openany]{book}
 

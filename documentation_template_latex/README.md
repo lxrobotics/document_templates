@@ -6,7 +6,7 @@ Use this LaTeX template to write documentation.
 Consider the following usage example below; also refer to the existing documents.
 
 ```tex
-\documentclass{zubaxdoc}                                    % You can use a symlink to refer to the class
+\documentclass{lxdoc.cls}                                    % You can use a symlink to refer to the class
 \usepackage{multirow}                                       % This package is required for joining rows in tables
 \graphicspath{{document_templates/documentation_template_latex/}}  % Path to the class directory must be provided
 \title{A demo document}

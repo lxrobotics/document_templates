@@ -287,8 +287,8 @@
 
 \newcommand\PageNumberWithTotal{\thepage\if@mainmatter/\pageref*{LastPage}\fi}
 
-\newcommand\ZubaxLogoBlack[1][15mm]{\includegraphics[width=#1]{zubax_logo_black}}
-\newcommand\ZubaxLogo[1][15mm]{\includegraphics[width=#1]{zubax_logo}}
+\newcommand\ZubaxLogoBlack[1][15mm]{\includegraphics[width=#1]{lxrobotics-logo-fg-grey-bg-trans}}
+\newcommand\ZubaxLogo[1][15mm]{\includegraphics[width=#1]{lxrobotics-logo-fg-white-bg-grey}}
 
 \newcommand\VerboseLinkToSupportForum{Support \& feedback: \href{https://forum.opencyphal.com}{forum.opencyphal.com}}
 

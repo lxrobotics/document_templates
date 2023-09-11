@@ -1,4 +1,5 @@
 % Copyright (c) 2017  Zubax Robotics  <info@zubax.com>
+% Copyright (c) 2023  LXRobotics  <office@lxrobotics.com>
 %
 % Distributed under GPL v3.
 %
@@ -232,7 +233,7 @@
 % Use this wrapper environment to define tables in it.
 % This environment provides proper placement of the table within the page, and the properly positioned caption.
 % An optional [wide] parameter can be specified to align the table with the left margin instead of leftskip.
-\NewDocumentEnvironment{ZubaxTableWrapper}{ o m }{%
+\NewDocumentEnvironment{LXTableWrapper}{ o m }{%
     \ifthenelse{\equal{#1}{wide}}{
         \NoLeftSkip
         \begin{minipage}{\textwidth}  % Minipage is needed to prevent page breaks before the caption
@@ -247,7 +248,7 @@
     \end{minipage}
 }
 
-\newenvironment{ZubaxCompactTable}[1]{
+\newenvironment{LXCompactTable}[1]{
     \begin{tblr}{#1}
         \SetRow{colorheaderbg}
 }{
@@ -255,7 +256,7 @@
 }
 
 % Use this environment to define a table within the wrapper environment defined above.
-\newenvironment{ZubaxWrappedTable}[2][\empty]{%
+\newenvironment{LXWrappedTable}[2][\empty]{%
     \begin{tblr}{#2}
         \SetRow{colorheaderbg}
 }{
@@ -265,12 +266,12 @@
 % This is a shortcut that places a table within the wrapper environment.
 % Use it in all cases unless you need to define table notes, or if you need to customize something.
 % An optional [wide] parameter can be specified to align the table with the left margin instead of leftskip.
-\newenvironment{ZubaxSimpleTable}[3][]{
-    \begin{ZubaxTableWrapper}[#1]{#2}
-        \begin{ZubaxWrappedTable}{#3}
+\newenvironment{LXSimpleTable}[3][]{
+    \begin{LXTableWrapper}[#1]{#2}
+        \begin{LXWrappedTable}{#3}
 }{
-        \end{ZubaxWrappedTable}
-    \end{ZubaxTableWrapper}
+        \end{LXWrappedTable}
+    \end{LXTableWrapper}
 }
 
 %
@@ -287,8 +288,8 @@
 
 \newcommand\PageNumberWithTotal{\thepage\if@mainmatter/\pageref*{LastPage}\fi}
 
-\newcommand\ZubaxLogoBlack[1][15mm]{\includegraphics[width=#1]{lxrobotics-logo-fg-grey-bg-trans}}
-\newcommand\ZubaxLogo[1][15mm]{\includegraphics[width=#1]{lxrobotics-logo-fg-white-bg-grey}}
+\newcommand\LXRoboticsLogoGrey[1][15mm]{\includegraphics[width=#1]{lxrobotics-logo-fg-grey-bg-trans}}
+\newcommand\LXRoboticsLogoWhite[1][15mm]{\includegraphics[width=#1]{lxrobotics-logo-fg-white-bg-grey}}
 
 \newcommand\VerboseLinkToSupportForum{Support \& feedback: \href{https://forum.opencyphal.com}{forum.opencyphal.com}}
 
@@ -297,8 +298,8 @@
 
 \renewpagestyle{plain}{
     \sethead%
-        [\TitleWithDateAfter][][\ZubaxLogoBlack]     % even
-        {\ZubaxLogoBlack}{}{\TitleWithDateBefore}    % odd
+        [\TitleWithDateAfter][][\LXRoboticsLogoGrey]     % even
+        {\LXRoboticsLogoGrey}{}{\TitleWithDateBefore}    % odd
 
     \setfoot%
         [\PageNumberWithTotal][\small\VerboseLinkToSupportForum][\small\LXRoboticsCopyright]
@@ -309,8 +310,8 @@
 }
 \newpagestyle{main}{
     \sethead%
-        [\TitleWithDateAfter][][\ZubaxLogoBlack]     % even
-        {\ZubaxLogoBlack}{}{\TitleWithDateBefore}    % odd
+        [\TitleWithDateAfter][][\LXRoboticsLogoGrey]     % even
+        {\LXRoboticsLogoGrey}{}{\TitleWithDateBefore}    % odd
 
     \setfoot%
         [\PageNumberWithTotal][][\small\ChapterTitleWithNumber]
@@ -351,7 +352,7 @@
     \begin{minipage}[b]{0.36\textwidth}
         \begin{flushright}
         \begin{small}
-            \ZubaxLogo[50mm]\\\vspace{3mm}
+            \LXRoboticsLogoWhite[50mm]\\\vspace{3mm}
             \textbf{\@author}\\
             Lehnerfeld 15, 4230 Pregarten, Austria\\
             \href{mailto:sales@lxrobotics.com}{sales@lxrobotics.com}\\

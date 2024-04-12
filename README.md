@@ -1,6 +1,6 @@
-<a href="https://107-systems.org/"><img align="right" src="https://raw.githubusercontent.com/107-systems/.github/main/logo/107-systems.png" width="15%"></a>
-:book: `107-systems` document templates
-=======================================
+<a href="https://lxrobotics.com/"><img align="right" src="https://raw.githubusercontent.com/lxrobotics/.github/main/logo/lxrobotics.png" width="15%"></a>
+:book: `lxrobotics` document templates
+======================================
 
 This repository contains templates for documents (LaTeX and such).
 

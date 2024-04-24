@@ -42,7 +42,7 @@
 \RequirePackage{titling}
 \RequirePackage[yyyymmdd]{datetime}
 \RequirePackage{lastpage}
-\RequirePackage[outputdir=out]{minted}
+\RequirePackage{minted}
 \RequirePackage{chngcntr}
 \RequirePackage{changepage}
 \RequirePackage{csquotes}
